@@ -7,14 +7,19 @@ export default {
 
         }
     },
+    methods: {
+        sendRequest() {
+            this.$emit('search')
+        }
+    }
 }
 </script>
 
 <template>
-    <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @keyup.enter="">
-        <button class="btn btn-danger" type="button">Search</button>
-    </form>
+    <div class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @keyup.enter="sendRequest">
+        <button class="btn btn-danger" type="button" @click="sendRequest">Search</button>
+    </div>
 </template>
 
 <style lang="scss" scoped>

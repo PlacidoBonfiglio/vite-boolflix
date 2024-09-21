@@ -5,21 +5,21 @@ import axios from 'axios';
 import { store } from './store.js';
 
     export default {
-        data() {
-            return {
+      data() {
+          return {
 
-            }
-        },
-        components: {
-            AppHeader,
-            AppMain
-        }
+          }
+      },
+      components: {
+          AppHeader,
+          AppMain
+      },
     }
 
 </script>
 
 <template>
-    <AppHeader @search="fammiSapere"/>
+    <AppHeader/>
     <AppMain/>
 </template>
 

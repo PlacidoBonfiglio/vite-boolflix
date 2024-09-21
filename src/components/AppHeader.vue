@@ -10,6 +10,11 @@ export default {
     },
     components: {
         MainSearch
+    },
+    methods: {
+        fammiSapere() {
+            console.log('ti faccio sapere')
+        },
     }
 }
 </script>
@@ -18,7 +23,7 @@ export default {
     <nav class="navbar bg-dark mb-5">
         <div class="container-fluid">
             <a class="navbar-brand text-red fs-3 fw-bold">BOOLFLIX</a>
-            <MainSearch/>
+            <MainSearch @search="fammiSapere"/>
         </div>
     </nav>
 </template>
