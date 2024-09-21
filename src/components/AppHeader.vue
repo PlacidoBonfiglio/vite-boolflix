@@ -13,7 +13,7 @@ export default {
     },
     methods: {
         fammiSapere() {
-            console.log('ti faccio sapere')
+            console.log('funziono')
         },
     }
 }
