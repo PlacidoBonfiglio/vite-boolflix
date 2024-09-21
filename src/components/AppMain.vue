@@ -4,9 +4,22 @@ import { store } from '../store.js';
 export default {
     data() {
         return {
-
+            apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=8886119bc2762c257900fe2ce351380f&query=ritorno+al+futuro'
         }
     },
+    methods: {
+        getMovies() {
+                axios.get(this.apiUrl)
+                    
+                // Per sovrascrivere un dato e usare il this ho bisogno di un arrow function 
+                .then((response) => {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            },
+    }
 }
 </script>
 

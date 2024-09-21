@@ -19,7 +19,7 @@ import { store } from './store.js';
 </script>
 
 <template>
-    <AppHeader/>
+    <AppHeader @search="fammiSapere"/>
     <AppMain/>
 </template>
 
