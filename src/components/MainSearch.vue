@@ -17,7 +17,7 @@ export default {
 
 <template>
     <div class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @keyup.enter="sendRequest" v-model="inputResult">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @keyup.enter="sendRequest" v-model.trim="inputResult">
         <button class="btn btn-danger" type="button" @click="sendRequest">Search</button>
     </div>
 </template>
