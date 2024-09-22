@@ -12,8 +12,8 @@ export default {
         MainSearch
     },
     methods: {
-        fammiSapere() {
-            console.log('funziono')
+        getMovie(result) {
+            console.log(result)
         },
     }
 }
@@ -23,7 +23,7 @@ export default {
     <nav class="navbar bg-dark mb-5">
         <div class="container-fluid">
             <a class="navbar-brand text-red fs-3 fw-bold">BOOLFLIX</a>
-            <MainSearch @search="fammiSapere"/>
+            <MainSearch @search="getMovie"/>
         </div>
     </nav>
 </template>

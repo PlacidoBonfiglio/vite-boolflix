@@ -4,12 +4,12 @@ import { store } from '../store.js';
 export default {
     data() {
         return {
-
+            inputResult: ''
         }
     },
     methods: {
         sendRequest() {
-            this.$emit('search')
+            this.$emit('search', this.inputResult)
         }
     }
 }
@@ -17,7 +17,7 @@ export default {
 
 <template>
     <div class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @keyup.enter="sendRequest">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @keyup.enter="sendRequest" v-model="inputResult">
         <button class="btn btn-danger" type="button" @click="sendRequest">Search</button>
     </div>
 </template>
