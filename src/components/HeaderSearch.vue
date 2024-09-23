@@ -8,17 +8,18 @@ export default {
         }
     },
     methods: {
-        sendRequest() {
+        mediaRequest() {
             this.$emit('searchMovie', store.inputResult)
-        }
+            this.$emit('searchTvSeries', store.inputResult)
+        },
     }
 }
 </script>
 
 <template>
     <div class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search" @keyup.enter="sendRequest" v-model.trim="store.inputResult">
-        <button class="btn btn-danger" type="button" @click="sendRequest">Cerca</button>
+        <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search" @keyup.enter="mediaRequest" v-model.trim="store.inputResult">
+        <button class="btn btn-danger" type="button" @click="mediaRequest">Cerca</button>
     </div>
 </template>
 

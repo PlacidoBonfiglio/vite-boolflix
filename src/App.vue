@@ -36,13 +36,32 @@ import { store } from './store.js';
                 console.log(error);
             });
         },
+
+        // CHIAMATA API TV SERIES
+        getTvSeries( tvSeriesResult = null ) {
+            console.log('TV SERIES!')
+            axios.get(this.tvSeriesUrl, {
+                params: {
+                    api_key: '8886119bc2762c257900fe2ce351380f',
+                    language: 'it_IT',
+                    query: tvSeriesResult
+                }
+            }) 
+            .then((response) => {
+                console.log(response.data.results);
+                store.tvSeriesList = response.data.results
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        },
     },
     }
 
 </script>
 
 <template>
-    <AppHeader @selectedFilm="getMovies"/>
+    <AppHeader @selectedFilm="getMovies" @selectedTvSeries="getTvSeries"/>
     <AppMain/>
 </template>
 

@@ -1,5 +1,4 @@
 <script>
-import { store } from '../store.js';
 import HeaderSearch from './HeaderSearch.vue';
 
 export default {
@@ -29,7 +28,7 @@ export default {
     <nav class="navbar bg-dark mb-5">
         <div class="container-fluid">
             <a class="navbar-brand text-red fs-3 fw-bold">BOOLFLIX</a>
-            <HeaderSearch @searchMovie="getMovie"/>
+            <HeaderSearch @searchMovie="getMovie" @searchTvSeries="getSeries"/>
         </div>
     </nav>
 </template>
