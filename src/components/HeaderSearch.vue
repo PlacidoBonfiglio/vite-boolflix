@@ -10,7 +10,6 @@ export default {
     methods: {
         sendRequest() {
             this.$emit('searchMovie', store.inputResult)
-            this.$emit('searchSeries', store.inputResult)
         }
     }
 }

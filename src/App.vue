@@ -18,7 +18,7 @@ import { store } from './store.js';
       },
       methods: {
 
-        // CHIAMATA API FILMS
+        // CHIAMATA API MOVIES
         getMovies( moviesResult = null ) {
             console.log('MOVIES!')
             axios.get(this.moviesUrl, {
@@ -31,25 +31,6 @@ import { store } from './store.js';
             .then((response) => {
                 console.log(response.data.results);
                 store.moviesList = response.data.results
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        },
-
-        // CHIAMATA API SERIE TV
-        getSeries( seriesResult = null ) {
-            console.log('TV SERIES!')
-            axios.get(this.tvSeriesUrl, {
-                params: {
-                    api_key: '8886119bc2762c257900fe2ce351380f',
-                    language: 'it_IT',
-                    query: seriesResult
-                }
-            }) 
-            .then((response) => {
-                console.log(response);
-                store.moviesList = response
             })
             .catch(function (error) {
                 console.log(error);
