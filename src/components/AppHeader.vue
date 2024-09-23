@@ -1,6 +1,6 @@
 <script>
 import { store } from '../store.js';
-import MainSearch from './MainSearch.vue';
+import HeaderSearch from './HeaderSearch.vue';
 
 export default {
     data() {
@@ -9,7 +9,7 @@ export default {
         }
     },
     components: {
-        MainSearch
+        HeaderSearch
     },
     methods: {
         getMovie(result) {
@@ -23,7 +23,7 @@ export default {
     <nav class="navbar bg-dark mb-5">
         <div class="container-fluid">
             <a class="navbar-brand text-red fs-3 fw-bold">BOOLFLIX</a>
-            <MainSearch @search="getMovie"/>
+            <HeaderSearch @search="getMovie"/>
         </div>
     </nav>
 </template>
