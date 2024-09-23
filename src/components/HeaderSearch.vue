@@ -9,7 +9,8 @@ export default {
     },
     methods: {
         sendRequest() {
-            this.$emit('search', store.inputResult)
+            this.$emit('searchMovie', store.inputResult)
+            this.$emit('searchSeries', store.inputResult)
         }
     }
 }
@@ -17,7 +18,7 @@ export default {
 
 <template>
     <div class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @keyup.enter="sendRequest" v-model.trim="store.inputResult">
+        <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search" @keyup.enter="sendRequest" v-model.trim="store.inputResult">
         <button class="btn btn-danger" type="button" @click="sendRequest">Cerca</button>
     </div>
 </template>

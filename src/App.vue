@@ -7,7 +7,8 @@ import { store } from './store.js';
     export default {
       data() {
           return {
-            apiUrl: 'https://api.themoviedb.org/3/search/movie',
+            moviesUrl: 'https://api.themoviedb.org/3/search/movie',
+            tvSeriesUrl: 'https://api.themoviedb.org/3/search/tv',
             store
           }
       },
@@ -16,18 +17,39 @@ import { store } from './store.js';
           AppMain
       },
       methods: {
-        getMovies( result = null ) {
-            console.log('trigger!')
-            axios.get(this.apiUrl, {
+
+        // CHIAMATA API FILMS
+        getMovies( moviesResult = null ) {
+            console.log('MOVIES!')
+            axios.get(this.moviesUrl, {
                 params: {
                     api_key: '8886119bc2762c257900fe2ce351380f',
                     language: 'it_IT',
-                    query: result
+                    query: moviesResult
                 }
             }) 
             .then((response) => {
                 console.log(response.data.results);
                 store.moviesList = response.data.results
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        },
+
+        // CHIAMATA API SERIE TV
+        getSeries( seriesResult = null ) {
+            console.log('TV SERIES!')
+            axios.get(this.tvSeriesUrl, {
+                params: {
+                    api_key: '8886119bc2762c257900fe2ce351380f',
+                    language: 'it_IT',
+                    query: seriesResult
+                }
+            }) 
+            .then((response) => {
+                console.log(response);
+                store.moviesList = response
             })
             .catch(function (error) {
                 console.log(error);

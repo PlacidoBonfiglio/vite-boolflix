@@ -12,9 +12,14 @@ export default {
         HeaderSearch
     },
     methods: {
-        getMovie(info) {
-            console.log(info)
-            this.$emit('selectedFilm', info )
+        getMovie(film) {
+            console.log(film)
+            this.$emit('selectedFilm', film )
+        },
+
+        getSeries(tvSeries) {
+            console.log(tvSeries)
+            this.$emit('selectedFilm', tvSeries )
         },
     }
 }
@@ -24,7 +29,7 @@ export default {
     <nav class="navbar bg-dark mb-5">
         <div class="container-fluid">
             <a class="navbar-brand text-red fs-3 fw-bold">BOOLFLIX</a>
-            <HeaderSearch @search="getMovie"/>
+            <HeaderSearch @searchMovie="getMovie" @searchSeries="getSeries"/>
         </div>
     </nav>
 </template>
