@@ -1,23 +1,12 @@
 <script>
 import { store } from '../store.js';
-import axios from 'axios';
 
 export default {
     data() {
         return {
             store,
-            posterMoviesSrc: 'https://image.tmdb.org/t/p/w342/'
+            posterMediaUrl: 'https://image.tmdb.org/t/p/w342/'
         }
-    },
-    methods: {
-        getPosterPic() {
-            console.log('POSTER!')
-            axios.get(this.posterMoviesSrc, {
-                params: {
-                    poster_path: store.moviesList.poster_path
-                }
-            })
-        },
     },
 }
 </script>
@@ -27,14 +16,16 @@ export default {
 
         <!-- ! FILM SECTION -->
         <section>
-            <h2 v-show="store.moviesList.length !== 0" class="text-white">FILMS</h2>
-            <h5 v-show="store.moviesList.length !== 0" class="mb-4 text-white">Risultati trovati: {{ store.moviesList.length }}</h5>
+            <div v-show="store.moviesList.length !== 0">
+                <h2 class="text-white">FILMS</h2>
+                <h5 class="mb-4 text-white">Risultati trovati: {{ store.moviesList.length }}</h5>
+            </div>
 
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-                <div class="col text-white text-center g-5" v-for="(movie, index) in store.moviesList" :key="index">
+                <div class="col text-white text-center g-5" v-for="movie in store.moviesList" :key="movie.id">
 
                     <div>
-                        <img :src="getPosterPic[index]" alt="movie poster">
+                        <img :src="posterMediaUrl+movie.poster_path" alt="movie poster">
                     </div>
 
                     <ul class="p-0">
@@ -72,11 +63,20 @@ export default {
 
         <!-- ! TV SERIES SECTION -->
         <section>
-            <h2 v-show="store.tvSeriesList.length !== 0" class="text-white">SERIE TV</h2>
-            <h5 v-show="store.tvSeriesList.length !== 0" class="mb-4 text-white">Risultati trovati: {{ store.tvSeriesList.length }}</h5>
+            <div v-show="store.tvSeriesList.length !== 0">
+                <hr class="text-white mt-5">
+                <h2 class="text-white mt-5">SERIE TV</h2>
+                <h5 class="mb-4 text-white">Risultati trovati: {{ store.tvSeriesList.length }}</h5>
+            </div>
+            
 
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-                <div class="col text-white text-center g-5" v-for="(serie, index) in store.tvSeriesList" :key="index">
+                <div class="col text-white text-center g-5" v-for="serie in store.tvSeriesList" :key="serie.id">
+
+                    <div>
+                        <img :src="posterMediaUrl+serie.poster_path" alt="serie poster">
+                    </div>
+
                     <ul class="p-0">
                         <li>
                             <b>Titolo:</b> {{ serie.name }}
