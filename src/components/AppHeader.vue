@@ -12,8 +12,9 @@ export default {
         HeaderSearch
     },
     methods: {
-        getMovie(result) {
-            console.log(result)
+        getMovie(info) {
+            console.log(info)
+            this.$emit('selectedFilm', info )
         },
     }
 }
