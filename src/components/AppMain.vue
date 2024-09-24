@@ -16,6 +16,9 @@ export default {
 
         <!-- ! FILM SECTION -->
         <section>
+
+            <h2 v-show="store.moviesList.length === 0" class="text-white">Cerca Film o Serie TV!</h2>
+
             <div v-show="store.moviesList.length !== 0">
                 <h2 class="text-white">FILMS</h2>
                 <h5 class="mb-4 text-white">Risultati trovati: {{ store.moviesList.length }}</h5>
@@ -119,6 +122,11 @@ export default {
 
         img {
             max-width: 100%;
+            border-radius: 10px;
+
+            &:hover {
+                filter: blur(5px);;
+            }
         }
 
         ul {
