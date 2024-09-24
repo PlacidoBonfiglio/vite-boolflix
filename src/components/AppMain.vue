@@ -149,6 +149,7 @@ export default {
 <style lang="scss" scoped>
     div.col {
         min-height: 400px;
+        margin-bottom: 40px;
         cursor: pointer;
 
         img.poster {
