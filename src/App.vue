@@ -57,7 +57,6 @@ import { store } from './store.js';
         },
     },
     }
-
 </script>
 
 <template>

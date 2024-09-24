@@ -28,7 +28,7 @@ export default {
                 <div class="col text-white text-center g-5 position-relative" v-for="movie in store.moviesList" :key="movie.id">
 
                     <div>
-                        <img :src="posterMediaUrl+movie.poster_path" alt="movie poster" class="poster">
+                        <img :src="posterMediaUrl+movie.poster_path" alt="movie-poster" class="poster">
                     </div>
 
                     <ul class="p-0 position-absolute">
@@ -61,19 +61,19 @@ export default {
 
                         <!-- USO V-IF PER CAPIRE QUANTE STELLE ASSEGNARE COME MEDIA DEI VOTI -->
                         <li v-if="movie.vote_average >= 8">
-                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
                         </li>
                         <li v-else-if="movie.vote_average >= 6">
-                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;&#9733;&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;&#9733;</span>
                         </li>
                         <li v-else-if="movie.vote_average >= 4">
-                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;</span>
                         </li>
                         <li v-else-if="movie.vote_average >= 2">
-                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;</span>
                         </li>
                         <li v-else-if="movie.vote_average < 2">
-                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;</span>
                         </li>
                     </ul>
                 </div>
@@ -88,12 +88,11 @@ export default {
                 <h5 class="mb-4 text-white">Risultati trovati: {{ store.tvSeriesList.length }}</h5>
             </div>
             
-
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 <div class="col text-white text-center g-5 position-relative" v-for="serie in store.tvSeriesList" :key="serie.id">
 
                     <div>
-                        <img :src="posterMediaUrl+serie.poster_path" alt="serie poster" class="poster">
+                        <img :src="posterMediaUrl+serie.poster_path" alt="tv-series-poster" class="poster">
                     </div>
 
                     <ul class="p-0 position-absolute">
@@ -126,19 +125,19 @@ export default {
 
                         <!-- USO V-IF PER CAPIRE QUANTE STELLE ASSEGNARE COME MEDIA DEI VOTI -->
                         <li v-if="serie.vote_average >= 8">
-                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
                         </li>
                         <li v-else-if="serie.vote_average >= 6">
-                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;&#9733;&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;&#9733;</span>
                         </li>
                         <li v-else-if="serie.vote_average >= 4">
-                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;</span>
                         </li>
                         <li v-else-if="serie.vote_average >= 2">
-                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;</span>
                         </li>
                         <li v-else-if="serie.vote_average < 2">
-                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;</span>
                         </li>
                     </ul>
                 </div>
@@ -172,7 +171,7 @@ export default {
                 margin-left: 10px;
             };
 
-            .yellow-star {
+            .vote-stars {
                 color: rgb(255, 230, 0);
             }
         }
