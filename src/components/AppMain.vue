@@ -20,7 +20,7 @@ export default {
             <h2 v-show="store.moviesList.length === 0" class="text-white">Cerca Film o Serie TV!</h2>
 
             <div v-show="store.moviesList.length !== 0">
-                <h2 class="text-white">FILMS</h2>
+                <h2 class="text-white">FILM</h2>
                 <h5 class="mb-4 text-white">Risultati trovati: {{ store.moviesList.length }}</h5>
             </div>
 
