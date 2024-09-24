@@ -25,23 +25,25 @@ export default {
             </div>
 
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-                <div class="col text-white text-center g-5" v-for="movie in store.moviesList" :key="movie.id">
+                <div class="col text-white text-center g-5 position-relative" v-for="movie in store.moviesList" :key="movie.id">
 
                     <div>
-                        <img :src="posterMediaUrl+movie.poster_path" alt="movie poster">
+                        <img :src="posterMediaUrl+movie.poster_path" alt="movie poster" class="poster">
                     </div>
 
-                    <ul class="p-0">
+                    <ul class="p-0 position-absolute">
                         <li>
                             <b>Titolo:</b> {{ movie.title }}
                         </li>
                         <li>
                             <b>Titolo originale:</b> {{ movie.original_title }}
                         </li>
+
+                        <!-- USO V-IF PER CAPIRE QUALE BANDIERA METTERE IN movie.original_lenguage -->
                         <li v-if="movie.original_language === 'en'">
                             <b>Lingua originale:</b> <img src="../assets/img/united-kingdom.png" alt="uk_flag" class="flag">
                         </li>
-                        <li v-if="movie.original_language === 'ja'">
+                        <li v-else-if="movie.original_language === 'ja'">
                             <b>Lingua originale:</b> <img src="../assets/img/japan.png" alt="ja_flag" class="flag">
                         </li>
                         <li v-else-if="movie.original_language === 'it'">
@@ -56,8 +58,22 @@ export default {
                         <li v-else-if="movie.original_language === 'de'">
                             <b>Lingua originale:</b> <img src="../assets/img/92094_germany_icon.png" alt="de_flag" class="flag">
                         </li>
-                        <li>
-                            <b>Media dei voti:</b> {{ movie.vote_average }}
+
+                        <!-- USO V-IF PER CAPIRE QUANTE STELLE ASSEGNARE COME MEDIA DEI VOTI -->
+                        <li v-if="movie.vote_average >= 8">
+                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        </li>
+                        <li v-else-if="movie.vote_average >= 6">
+                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;&#9733;&#9733;</span>
+                        </li>
+                        <li v-else-if="movie.vote_average >= 4">
+                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;&#9733;</span>
+                        </li>
+                        <li v-else-if="movie.vote_average >= 2">
+                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;</span>
+                        </li>
+                        <li v-else-if="movie.vote_average < 2">
+                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;</span>
                         </li>
                     </ul>
                 </div>
@@ -74,23 +90,25 @@ export default {
             
 
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-                <div class="col text-white text-center g-5" v-for="serie in store.tvSeriesList" :key="serie.id">
+                <div class="col text-white text-center g-5 position-relative" v-for="serie in store.tvSeriesList" :key="serie.id">
 
                     <div>
-                        <img :src="posterMediaUrl+serie.poster_path" alt="serie poster">
+                        <img :src="posterMediaUrl+serie.poster_path" alt="serie poster" class="poster">
                     </div>
 
-                    <ul class="p-0">
+                    <ul class="p-0 position-absolute">
                         <li>
                             <b>Titolo:</b> {{ serie.name }}
                         </li>
                         <li>
                             <b>Titolo originale:</b> {{ serie.original_name }}
                         </li>
+
+                        <!-- USO V-IF PER CAPIRE QUALE BANDIERA METTERE IN serie.original_lenguage -->
                         <li v-if="serie.original_language === 'en'">
                             <b>Lingua originale:</b> <img src="../assets/img/united-kingdom.png" alt="uk_flag" class="flag">
                         </li>
-                        <li v-if="serie.original_language === 'ja'">
+                        <li v-else-if="serie.original_language === 'ja'">
                             <b>Lingua originale:</b> <img src="../assets/img/japan.png" alt="ja_flag" class="flag">
                         </li>
                         <li v-else-if="serie.original_language === 'it'">
@@ -105,8 +123,22 @@ export default {
                         <li v-else-if="serie.original_language === 'de'">
                             <b>Lingua originale:</b> <img src="../assets/img/92094_germany_icon.png" alt="de_flag" class="flag">
                         </li>
-                        <li>
-                            <b>Media dei voti:</b> {{ serie.vote_average }}
+
+                        <!-- USO V-IF PER CAPIRE QUANTE STELLE ASSEGNARE COME MEDIA DEI VOTI -->
+                        <li v-if="serie.vote_average >= 8">
+                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        </li>
+                        <li v-else-if="serie.vote_average >= 6">
+                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;&#9733;&#9733;</span>
+                        </li>
+                        <li v-else-if="serie.vote_average >= 4">
+                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;&#9733;</span>
+                        </li>
+                        <li v-else-if="serie.vote_average >= 2">
+                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;&#9733;</span>
+                        </li>
+                        <li v-else-if="serie.vote_average < 2">
+                            <b>Media dei voti:</b> <span class="yellow-star">&#9733;</span>
                         </li>
                     </ul>
                 </div>
@@ -120,23 +152,39 @@ export default {
         min-height: 400px;
         cursor: pointer;
 
-        img {
+        img.poster {
             max-width: 100%;
-            border-radius: 10px;
-
-            &:hover {
-                filter: blur(5px);;
-            }
+            border-radius: 10px;            
         }
 
         ul {
+            display: none;
             list-style-type: none;
+            max-width: 70%;
+            top: 35%;
+            left: 15%;
+            right: 0;
+            text-shadow: 0 0 5px black;
 
             img.flag {
                 display: inline;
                 height: 25px;
                 margin-left: 10px;
             };
+
+            .yellow-star {
+                color: rgb(255, 230, 0);
+            }
+        }
+    }
+
+    div.col:hover {
+        img.poster {
+            filter: blur(5px) grayscale(80%);
+        }
+
+        ul {
+            display: inline;
         }
     }
 </style>
