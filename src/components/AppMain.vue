@@ -58,6 +58,9 @@ export default {
                         <li v-else-if="movie.original_language === 'de'">
                             <b>Lingua originale:</b> <img src="../assets/img/92094_germany_icon.png" alt="de_flag" class="flag">
                         </li>
+                        <li v-else>
+                            <b>Lingua originale:</b> {{movie.original_language}}
+                        </li>
 
                         <!-- USO V-IF PER CAPIRE QUANTE STELLE ASSEGNARE COME MEDIA DEI VOTI -->
                         <li v-if="movie.vote_average >= 8">
@@ -121,6 +124,9 @@ export default {
                         </li>
                         <li v-else-if="serie.original_language === 'de'">
                             <b>Lingua originale:</b> <img src="../assets/img/92094_germany_icon.png" alt="de_flag" class="flag">
+                        </li>
+                        <li v-else>
+                            <b>Lingua originale:</b> {{serie.original_language}}
                         </li>
 
                         <!-- USO V-IF PER CAPIRE QUANTE STELLE ASSEGNARE COME MEDIA DEI VOTI -->
