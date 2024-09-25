@@ -67,16 +67,16 @@ export default {
                             <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
                         </li>
                         <li v-else-if="movie.vote_average >= 6">
-                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
                         </li>
                         <li v-else-if="movie.vote_average >= 4">
-                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
                         </li>
                         <li v-else-if="movie.vote_average >= 2">
-                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9734;&#9734;&#9734;</span>
                         </li>
                         <li v-else-if="movie.vote_average < 2">
-                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9734;&#9734;&#9734;&#9734;</span>
                         </li>
                     </ul>
                 </div>
@@ -134,16 +134,16 @@ export default {
                             <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
                         </li>
                         <li v-else-if="serie.vote_average >= 6">
-                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
                         </li>
                         <li v-else-if="serie.vote_average >= 4">
-                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
                         </li>
                         <li v-else-if="serie.vote_average >= 2">
-                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9733;&#9734;&#9734;&#9734;</span>
                         </li>
                         <li v-else-if="serie.vote_average < 2">
-                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;</span>
+                            <b>Media dei voti:</b> <span class="vote-stars">&#9733;&#9734;&#9734;&#9734;&#9734;</span>
                         </li>
                     </ul>
                 </div>
